@@ -1,0 +1,36 @@
+---
+title       : DDPW3
+subtitle    : 3RD Week Assigment
+author      : Manuel
+job         : March 21, 2018
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Mtcars Plot
+
+```{r, warning=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(webshot)
+g <- ggplot(mtcars, aes(x = wt, y = mpg)) +
+     geom_point(aes(colour = cyl, size = hp))
+labels <- c('0' = "Automatic", '1' = "Manual")
+g <- g + facet_grid(.~am, labeller = labeller(am=labels))
+
+gg <- ggplotly(g)
+```
+
+
+```{r, echo=FALSE}
+gg
+```
+
+---
+
+
